@@ -13,10 +13,20 @@ class User:
     self.userName = userName
     self.password = password
       
-  #Saving the user to the user_list
+  #SAVING THE USER TO THE USER_LIST
   def save_user(self):
     """
     save_user method saves user objects into the user_list 
     """
 
     User.user_list.append(self)
+
+  #DISPLAY THE USERS IN THE USER_LIST
+  @classmethod
+  def display_users(cls):
+    """
+    display_users method returns the saved user objects in the user_list 
+    """
+
+    return cls.user_list
+

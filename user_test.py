@@ -44,5 +44,14 @@ class TestUser(unittest.TestCase):
       #Check the length of our user_list to confirm an addition has been made to our user list.
       self.assertEqual(len(User.user_list),1)    
 
+    #THIRD TEST
+    def test_display_users(self):
+      '''
+      test_display_users test case to display all the saved users in the user list
+      '''
+
+      self.assertEqual(User.display_users(),User.user_list)
+
+
 if __name__ == '__main__':
     unittest.main()
