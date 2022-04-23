@@ -14,24 +14,35 @@ class TestUser(unittest.TestCase):
     '''
 
     def setUp(self):
-        '''
-        Set up method to run before each test cases.
-        It defines instructions that will be executed before each test method.
-        '''
-         # Create a user object with the userName and password arguments
-        self.new_user = User("Shalyne","Shalyne123")
+      '''
+      Set up method to run before each test cases.
+      It defines instructions that will be executed before each test method.
+      '''
+      
+      # Create a user object with the userName and password arguments
+      self.new_user = User("Shalyne","Shalyne123")
 
-    #FIRST TEST: Test if our objects are being initialized correctly.
+    #FIRST TEST
     def test_init(self):
-        '''
-        test_init test case to test if the object is initialized properly
-        '''
+      '''
+      test_init test case to test if the object is initialized properly
+      '''
 
-        #The assertEqual() method checks for an expected result. 
-        #The first argument is the expected result and the second argument is the result that is actually gotten. 
-        self.assertEqual(self.new_user.userName,"Shalyne")
-        self.assertEqual(self.new_user.password,"Shalyne123")
+      #The assertEqual() method checks for an expected result. 
+      #The first argument is the expected result and the second argument is the result that is actually gotten. 
+      self.assertEqual(self.new_user.userName,"Shalyne")
+      self.assertEqual(self.new_user.password,"Shalyne123")
 
+    #SECOND TEST
+    def test_save_user(self):
+      '''
+      test_save_user test case to test if the object is being saved into the user list
+      '''
+
+      self.new_user.save_user()
+
+      #Check the length of our user_list to confirm an addition has been made to our user list.
+      self.assertEqual(len(User.user_list),1)    
 
 if __name__ == '__main__':
     unittest.main()
