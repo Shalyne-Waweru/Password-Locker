@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
 from user import User
+from credentials import Credentials
 
 def function():
 	print("               ____                          _                           _                        ")
@@ -10,6 +11,8 @@ def function():
 	print("              |_|    \_____|  ___/  ___/    |_ _ _ _)  \_____/  |_ _ _) |_|  \_\  \____/  | |     ")
 
 function()
+
+#---------------------------USER FUNCTIONS -----------------------------
 
 #1. CREATING A NEW USER
 def create_user(userName,password):
@@ -23,7 +26,7 @@ def create_user(userName,password):
 #2. SAVING THE CREATED USER
 def save_user(user):
   '''
-  Function to create a new user
+  Function to save a created user
   '''
   user.save_user()
 
@@ -47,6 +50,40 @@ def generate_password():
   Function that generates a random password.
   '''
   return User.generatePass()
+
+
+#---------------------------CREDENTIAL FUNCTIONS -----------------------------
+
+#1. CREATING A NEW CREDENTIAL
+def create_credential(accountType,userName,password):
+  '''
+  Function to create a new credential
+  '''
+  #Creating a new credential object and return it.
+  new_credential = Credentials(accountType,userName,password)
+  return new_credential
+
+#2. SAVING THE CREATED CREDENTIAL
+def save_credential(credential):
+  '''
+  Function to save a created credential
+  '''
+  credential.save_credential()
+
+#3. DISPLAY THE SAVED CREDENTIALS
+def display_credentials():
+  '''
+  Function that returns all the saved credentials
+  '''
+  return Credentials.display_credentials()
+
+#4. DELETE CREDENTIALS
+def del_credential(credential):
+    '''
+    Function to delete a credential
+    '''
+    credential.del_credential()
+
 
 #MAIN FUNCTION
 def main():
