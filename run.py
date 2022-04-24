@@ -1,6 +1,4 @@
 #!/usr/bin/env python3.6
-
-from curses.ascii import US
 from user import User
 
 def function():
@@ -43,6 +41,13 @@ def check_existing_users(username):
     '''
     return User.verify_user(username)
 
+#5. GENERATE PASSWORD
+def generate_password():
+  '''
+  Function that generates a random password.
+  '''
+  return User.generatePass()
+
 #MAIN FUNCTION
 def main():
   print ('\n')
@@ -55,8 +60,26 @@ def main():
   print("             "+"-"*20)
 
   username = input("             Enter your username: ")
+  print("\n")
 
-  password = input("             Enter your password: ")
+  while True:
+    print("             Use the following short codes to proceed:")
+    print("             e - Enter your own password    g - Use an auto-generated password \n")
+
+    choice = input("             Enter your choice: ").lower().strip()
+    print("\n")
+
+    if choice == 'e':
+      password = input("             Enter your password: ")
+      break
+
+    elif choice == 'g':
+      password = generate_password()
+      print("             Password Successfully Generated!")
+      break
+
+    else:
+      print("             Enter a valid input \n")
 
   #Creating and saving a new user
   save_user(create_user(username,password))

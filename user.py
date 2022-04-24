@@ -1,3 +1,8 @@
+import string
+import random
+
+from click import password_option
+
 class User:
   """
   Class that generates new instances of users
@@ -34,10 +39,21 @@ class User:
   @classmethod
   def verify_user(cls,userName):
       '''
-      Method that checks if a user exists from the user_list.
+      verify_user method that checks if a user exists from the user_list.
       '''
       for user in cls.user_list:
           if user.userName == userName:
                   return True
 
       return False
+
+  #GENERATE A RANDOM PASSWORD
+  def generatePass(minLength = 8):
+    '''
+    generatePass method that generates a random password.
+    '''
+
+    #Specify the password to have Uppercase, Lowercase, Digits and Special Characters
+    password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+    result = ''.join(random.choice(password) for i in range(minLength))
+    return result
