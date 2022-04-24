@@ -78,12 +78,18 @@ def display_credentials():
   return Credentials.display_credentials()
 
 #4. DELETE CREDENTIALS
-def del_credential(credential):
+def delete_credential(credential):
     '''
     Function to delete a credential
     '''
-    credential.del_credential()
+    credential.delete_credential()
 
+#5. FIND CREDENTIALS
+def find_credential(accountName):
+  '''
+  Function that finds a credential by accountName and returns the credential
+  '''
+  return Credentials.find_credential(accountName)
 
 #MAIN FUNCTION
 def main():
@@ -173,7 +179,7 @@ def main():
                 print("             Create New Account Credentials")
                 print("             "+"-"*30)
 
-                accountType = input("             Enter the account name: ")
+                accountType = input("             Enter the account name: ").lower().strip()
                 username = input("             Enter your username: ")
                 print("\n")
 
@@ -202,7 +208,7 @@ def main():
                 print ('\n')
                 print("             New Account Credential Created Successfully!")
                 print(f"             Account Name: {accountType}  Username: {username}  Password: {password}")
-                print("             "+"*"*50)
+                print("             "+"*"*60)
                 print ('\n')
                 break
 
@@ -211,7 +217,7 @@ def main():
                 print("             Store Existing Account Credentials")
                 print("             "+"-"*30)
 
-                accountType = input("             Enter the account name: ")
+                accountType = input("             Enter the account name: ").lower().strip()
                 username = input("             Enter your account's username: ")
                 password = input("             Enter your account's password: ")
 
@@ -251,9 +257,59 @@ def main():
                 break
 
               elif choice == 'del':
-                print("             "+"-"*30)
+                print("             "+"-"*26)
                 print("             Delete Account Credentials")
-                print("             "+"-"*30)
+                print("             "+"-"*26)
+                print("\n")
+
+                search_credential = input("             Enter the Account Name you want to Delete: ").lower().strip()
+                print("\n")
+                
+                if display_credentials():
+
+                  for credential in display_credentials():
+
+                    if search_credential == credential.accountType:
+                      print("             The following credentials were found:--->")
+                      print("\n")
+
+                      print(f"             Account Name: {credential.accountType}")
+                      print(f"             Account Username: {credential.userName}")
+                      print(f"             Account Password: {credential.password}")
+                      print("\n")
+
+                      while True:
+                        print(f"             Are you sure you want to delete {search_credential} account credentials? y/n")
+                        print("\n")
+
+                        choice = input("             Enter your choice: ").lower().strip()
+                        print("\n")
+
+                        if choice == 'y':
+                          credential.delete_credential()
+                          print(f"             {search_credential} Account Credentials Deleted Successfully!")
+                          print("             "+"*"*50)
+                          print("\n")
+                          break
+
+                        elif choice == 'n':
+                          print(f"             {search_credential} Account Credentials Deletion Terminated!")
+                          print("             "+"*"*50)
+                          print("\n")
+                          break
+
+                        else:
+                          print("             Enter a valid input! \n")
+        
+                    else:
+                      print(f"             No {search_credential} credentials were found")
+
+                else:
+                  print("             You Don't have any existing account credentials")
+                  print("             Login to create a new account or store your existing accounts")
+                  print("             "+"*"*60)
+                  print("\n")
+
                 break
 
               elif choice == 'ex':
