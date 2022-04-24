@@ -1,8 +1,6 @@
 import string
 import random
 
-from click import password_option
-
 class User:
   """
   Class that generates new instances of users

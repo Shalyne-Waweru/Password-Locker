@@ -64,11 +64,11 @@ def create_credential(accountType,userName,password):
   return new_credential
 
 #2. SAVING THE CREATED CREDENTIAL
-def save_credential(credential):
+def save_credentials(credential):
   '''
   Function to save a created credential
   '''
-  credential.save_credential()
+  credential.save_credentials()
 
 #3. DISPLAY THE SAVED CREDENTIALS
 def display_credentials():
@@ -116,7 +116,7 @@ def main():
       break
 
     else:
-      print("             Enter a valid input \n")
+      print("             Enter a valid input! \n")
 
   #Creating and saving a new user
   save_user(create_user(username,password))
@@ -137,33 +137,112 @@ def main():
 
 
     if choice == 'y':
-      while True:
-        #---->LOGGING IN
-        print("             "+"-"*21)
-        print("             Login to Your Account")
-        print("             "+"-"*21)
+      #---->LOGGING IN
+      print("             "+"-"*21)
+      print("             Login to Your Account")
+      print("             "+"-"*21)
 
-        username = input("             Enter your username: ")
+      username = input("             Enter your username: ")
 
-        password = input("             Enter your password: ")
+      password = input("             Enter your password: ")
 
-        print ('\n')
+      print ('\n')
 
-        for user in display_users():
-          #If user exists and entered password IS equal to the stored password
-          if check_existing_users(username) and password == user.password:
-              print(f"             Hello {username}.Welcome To PassWord Locker")  
-              print('\n')
+      for user in display_users():
+        #If user exists and entered password IS equal to the stored password
+        if check_existing_users(username) and password == user.password:
+            print(f"             Hello {username}.Welcome To PassWord Locker")  
+            print("             "+"*"*40)
+            print ('\n')
+            
+            #CREDENTIALS IMPLEMENTATIONS
+            while True:
+              print("             Use the following short codes to proceed:")
+              print("             cr - Create New Account Credentials")
+              print("             st - Store Existing Account Credentials")
+              print("             dis - Display All Account Credentials")
+              print("             del- Delete Account Credentials")
+              print("             ex - EXIT") 
+              print("\n")
 
-          #If user exists and entered password is NOT equal to the stored password
-          elif check_existing_users(username) and password != user.password:
-            print("             Invalid password. Please try Again \n")
-            break
-          
-          #If user DOESN'T exist
-          else:
-            print("             That user does not exist \n")
-            break
+              choice = input("             Enter your choice: ").lower().strip()
+              print("\n")
+
+              if choice == 'cr':
+                print("             "+"-"*30)
+                print("             Create New Account Credentials")
+                print("             "+"-"*30)
+
+                accountType = input("             Enter the account name: ")
+                username = input("             Enter your username: ")
+                print("\n")
+
+                while True:
+                  print("             Use the following short codes to proceed:")
+                  print("             e - Enter your own password    g - Use an auto-generated password \n")
+
+                  choice = input("             Enter your choice: ").lower().strip()
+                  print("\n")
+
+                  if choice == 'e':
+                    password = input("             Enter your password: ")
+                    break
+
+                  elif choice == 'g':
+                    password = generate_password()
+                    print("             Password Successfully Generated!")
+                    break
+
+                  else:
+                    print("             Enter a valid input! \n")
+
+                #Creating and saving a new credential
+                save_credentials(create_credential(accountType,username,password))
+
+                print ('\n')
+                print("             New Account Credential Created Successfully!")
+                print(f"             Hello {username}, your {accountType}'s password is {password}")
+                print("             "+"*"*50)
+                print ('\n')
+                break
+
+              elif choice == 'st':
+                print("             "+"-"*30)
+                print("             Store Existing Account Credentials")
+                print("             "+"-"*30)
+                break
+
+              elif choice == 'dis':
+                print("             "+"-"*30)
+                print("             Display All Account Credentials")
+                print("             "+"-"*30)
+                break
+
+              elif choice == 'del':
+                print("             "+"-"*30)
+                print("             Delete Account Credentials")
+                print("             "+"-"*30)
+                break
+
+              elif choice == 'ex':
+                print("             Thank you for Using Password Locker")
+                print("             "+"*"*40)
+                print ('\n')
+                break
+
+              else:
+                print("             Enter a valid input! \n")
+                break
+
+        #If user exists and entered password is NOT equal to the stored password
+        elif check_existing_users(username) and password != user.password:
+          print("             Invalid password. Please try Again \n")
+          break
+        
+        #If user DOESN'T exist
+        else:
+          print("             That user does not exist \n")
+          break
 
     elif choice == 'n':
       print("             Logging Out.See You Next Time...")
