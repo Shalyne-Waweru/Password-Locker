@@ -67,6 +67,51 @@ def main():
   print("             "+"*"*40)
   print ('\n')
 
+  while True:
+    print("             Would you like to login to your account?:")
+    print("             y - YES    n - NO \n")
+
+    #Transform the user input to lowercase and strip any extra spaces
+    choice = input("             Enter your choice: ").lower().strip()
+    print("\n")
+
+
+    if choice == 'y':
+      while True:
+        #---->LOGGING IN
+        print("             "+"-"*21)
+        print("             Login to Your Account")
+        print("             "+"-"*21)
+
+        username = input("             Enter your username: ")
+
+        password = input("             Enter your password: ")
+
+        print ('\n')
+
+        for user in display_users():
+          #If user exists and entered password IS equal to the stored password
+          if check_existing_users(username) and password == user.password:
+              print(f"             Hello {username}.Welcome To PassWord Locker")  
+              print('\n')
+
+          #If user exists and entered password is NOT equal to the stored password
+          elif check_existing_users(username) and password != user.password:
+            print("             Invalid password. Please try Again \n")
+            break
+          
+          #If user DOESN'T exist
+          else:
+            print("             That user does not exist \n")
+            break
+
+    elif choice == 'n':
+      print("             Logging Out.See You Next Time...")
+      break
+
+    else:
+      print("             Enter a valid input \n")
+
 if __name__ == '__main__':
 
   main()
