@@ -30,3 +30,14 @@ class User:
 
     return cls.user_list
 
+  #VERIFY A USER EXISTS IN THE USER_LIST
+  @classmethod
+  def verify_user(cls,userName):
+      '''
+      Method that checks if a user exists from the user_list.
+      '''
+      for user in cls.user_list:
+          if user.userName == userName:
+                  return True
+
+      return False

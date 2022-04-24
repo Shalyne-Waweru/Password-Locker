@@ -52,6 +52,19 @@ class TestUser(unittest.TestCase):
 
       self.assertEqual(User.display_users(),User.user_list)
 
+    #FOURTH TEST
+    def test_verify_user(self):
+        '''
+        test to verify if a user exists in the user_list.
+        '''
+
+        # Create and save a new user
+        test_user = User("Test","Test123")
+        test_user.save_user()
+
+        user_exists = User.verify_user("Test")
+
+        self.assertTrue(user_exists)
 
 if __name__ == '__main__':
     unittest.main()
