@@ -210,12 +210,28 @@ def main():
                 print("             "+"-"*30)
                 print("             Store Existing Account Credentials")
                 print("             "+"-"*30)
+
+                accountType = input("             Enter the account name: ")
+                username = input("             Enter your account's username: ")
+                password = input("             Enter your account's password: ")
+
+                #Creating and saving a new credential
+                save_credentials(create_credential(accountType,username,password))
+
+                print ('\n')
+                print("             Existing Account Credentials Stored Successfully!")
+                print(f"             Account Name: {accountType}  Username: {username}  Password: {password}")
+                print("             "+"*"*65)
+                print ('\n')
+
                 break
 
               elif choice == 'dis':
-                print("             "+"-"*30)
+                print("             "+"-"*31)
                 print("             Display All Account Credentials")
-                print("             "+"-"*30)
+                print("             "+"-"*31)
+                print("\n")
+
                 break
 
               elif choice == 'del':
