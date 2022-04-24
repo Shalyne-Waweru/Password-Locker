@@ -29,3 +29,13 @@ class Credentials:
     """
 
     return cls.credentials_list
+
+  #DELETE A CREDENTIAL
+  def delete_credential(self):
+
+        '''
+        delete_credential method deletes a saved credential from the credential_list
+        '''
+
+        Credentials.credentials_list.remove(self)
+  
