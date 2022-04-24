@@ -201,7 +201,7 @@ def main():
 
                 print ('\n')
                 print("             New Account Credential Created Successfully!")
-                print(f"             Hello {username}, your {accountType}'s password is {password}")
+                print(f"             Account Name: {accountType}  Username: {username}  Password: {password}")
                 print("             "+"*"*50)
                 print ('\n')
                 break
@@ -231,6 +231,22 @@ def main():
                 print("             Display All Account Credentials")
                 print("             "+"-"*31)
                 print("\n")
+
+                if display_credentials():
+                  print("             Here's a list of all you account credentials:-->")
+                  print("\n")
+
+                  for account in display_credentials():
+                    print(f"             Account Name: {account.accountType}")
+                    print(f"             Account Username: {account.userName}")
+                    print(f"             Account Password: {account.password}")
+                    print("\n")
+
+                else:
+                  print("             You Don't have any existing account credentials")
+                  print("             Login to create a new account or store your existing accounts")
+                  print("             "+"*"*60)
+                  print("\n")
 
                 break
 
