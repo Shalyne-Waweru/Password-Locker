@@ -84,13 +84,6 @@ def delete_credential(credential):
     '''
     credential.delete_credential()
 
-#5. FIND CREDENTIALS
-def find_credential(accountName):
-  '''
-  Function that finds a credential by accountName and returns the credential
-  '''
-  return Credentials.find_credential(accountName)
-
 #MAIN FUNCTION
 def main():
   print ('\n')
@@ -174,6 +167,7 @@ def main():
               choice = input("             Enter your choice: ").lower().strip()
               print("\n")
 
+              #Creating New Account Creddentials
               if choice == 'cr':
                 print("             "+"-"*30)
                 print("             Create New Account Credentials")
@@ -193,7 +187,8 @@ def main():
                   if choice == 'e':
                     password = input("             Enter your password: ")
                     break
-
+                  
+                  #Generating A Random Password
                   elif choice == 'g':
                     password = generate_password()
                     print("             Password Successfully Generated!")
@@ -212,6 +207,7 @@ def main():
                 print ('\n')
                 break
 
+              #Store Existing Account Credentials
               elif choice == 'st':
                 print("             "+"-"*30)
                 print("             Store Existing Account Credentials")
@@ -229,15 +225,16 @@ def main():
                 print(f"             Account Name: {accountType}  Username: {username}  Password: {password}")
                 print("             "+"*"*65)
                 print ('\n')
-
                 break
 
+              #Display All the Saved Account Credentials
               elif choice == 'dis':
                 print("             "+"-"*31)
                 print("             Display All Account Credentials")
                 print("             "+"-"*31)
                 print("\n")
 
+                #If there are saved account credentials
                 if display_credentials():
                   print("             Here's a list of all you account credentials:-->")
                   print("\n")
@@ -248,6 +245,7 @@ def main():
                     print(f"             Account Password: {account.password}")
                     print("\n")
 
+                #If there are NO saved account credentials
                 else:
                   print("             You Don't have any existing account credentials")
                   print("             Login to create a new account or store your existing accounts")
@@ -256,6 +254,7 @@ def main():
 
                 break
 
+              #Deleting Credentials
               elif choice == 'del':
                 print("             "+"-"*26)
                 print("             Delete Account Credentials")
@@ -265,10 +264,12 @@ def main():
                 search_credential = input("             Enter the Account Name you want to Delete: ").lower().strip()
                 print("\n")
                 
+                #If there are saved account credentials
                 if display_credentials():
 
                   for credential in display_credentials():
 
+                    #Check if the searched account name matches any saved account credentials
                     if search_credential == credential.accountType:
                       print("             The following credentials were found:--->")
                       print("\n")
@@ -301,9 +302,11 @@ def main():
                         else:
                           print("             Enter a valid input! \n")
         
+                    #If the searched account name DOESN'T match any saved account credentials
                     else:
                       print(f"             No {search_credential} credentials were found")
 
+                #If there are NO saved account credentials
                 else:
                   print("             You Don't have any existing account credentials")
                   print("             Login to create a new account or store your existing accounts")

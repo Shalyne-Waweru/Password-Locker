@@ -38,14 +38,3 @@ class Credentials:
         '''
 
         Credentials.credentials_list.remove(self)
-  
-  #FIND A CREDENTIAL
-  @classmethod
-  def find_credential(cls,accountName):
-      '''
-      Method that takes in an accountName and returns a credential that matches that accountName
-      '''
-
-      for credential in cls.credentials_list:
-          if credential.accountType == accountName:
-              return credential
