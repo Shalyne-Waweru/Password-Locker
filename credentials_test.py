@@ -43,6 +43,27 @@ class TestCredentials(unittest.TestCase):
 
       #Check the length of our credentials_list to confirm an addition has been made to our credentials_list.
       self.assertEqual(len(Credentials.credentials_list),1) 
+    
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            #Assign the credentials_list in the Credentials class as an empty list
+            Credentials.credentials_list = []
+            
+    #THIRD TEST
+    def test_save_multiple_credentials(self):
+            '''
+            test_save_multiple_credentials to check if we can save multiple credentials
+            objects to our credentials_list
+            '''
+            self.new_credentials.save_credentials()
+
+             # Create and save a new credential
+            test_credential = Credentials("TestAccount","Test","Test123")
+            test_credential.save_credentials()
+
+            self.assertEqual(len(Credentials.credentials_list),2)
 
 if __name__ == '__main__':
     unittest.main()
