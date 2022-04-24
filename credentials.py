@@ -20,3 +20,12 @@ class Credentials:
     """
 
     Credentials.credentials_list.append(self)
+
+  #DISPLAY THE CREDENTIALS IN THE CREDENTIALS_LIST
+  @classmethod
+  def display_credentials(cls):
+    """
+    display_credentials method returns the saved credential objects in the credentials_list 
+    """
+
+    return cls.credentials_list
