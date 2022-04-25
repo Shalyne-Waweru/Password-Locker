@@ -29,12 +29,10 @@ Run the following commands on the terminal
 
 ## Behaviour Driven Development
 
-| Behaviour               | Input              | Output          |
-| :---:                   |   :---:            | :---:           |
-| Open the application      Run the commannd     Welcome to PASSWORD LOCKER
-                            `$ ./run.py`
-  on the terminal         |                    |                 |
-| `Bob`                   | Test2              | `Los Angeles`        |
+|   Behaviour       	      |  Input             	    |  Output      	|
+|   :---: 	                |  :---:	                |  :---:	          |
+|   Open the application on the terminal  	| Run the commannd  `$ ./run.py`	| Welcome to PASSWORD LOCKER. We Help You Manage Your Account Passwords and Generate New Passwords For You!  	|
+|   STH                    |   STH	|   STH	|
 
 ## License info
 MIT License
