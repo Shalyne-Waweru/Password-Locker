@@ -205,13 +205,12 @@ def main():
                 print(f"             Account Name: {accountType}  Username: {username}  Password: {password}")
                 print("             "+"*"*60)
                 print ('\n')
-                break
 
               #Store Existing Account Credentials
               elif choice == 'st':
-                print("             "+"-"*30)
+                print("             "+"-"*35)
                 print("             Store Existing Account Credentials")
-                print("             "+"-"*30)
+                print("             "+"-"*35)
 
                 accountType = input("             Enter the account name: ").lower().strip()
                 username = input("             Enter your account's username: ")
@@ -225,7 +224,6 @@ def main():
                 print(f"             Account Name: {accountType}  Username: {username}  Password: {password}")
                 print("             "+"*"*65)
                 print ('\n')
-                break
 
               #Display All the Saved Account Credentials
               elif choice == 'dis':
@@ -251,8 +249,6 @@ def main():
                   print("             Login to create a new account or store your existing accounts")
                   print("             "+"*"*60)
                   print("\n")
-
-                break
 
               #Deleting Credentials
               elif choice == 'del':
@@ -305,6 +301,8 @@ def main():
                     #If the searched account name DOESN'T match any saved account credentials
                     else:
                       print(f"             No {search_credential} credentials were found")
+                      print("             "+"*"*34)
+                      print("\n")
 
                 #If there are NO saved account credentials
                 else:
@@ -312,8 +310,6 @@ def main():
                   print("             Login to create a new account or store your existing accounts")
                   print("             "+"*"*60)
                   print("\n")
-
-                break
 
               elif choice == 'ex':
                 print("             Thank you for Using Password Locker")
@@ -323,7 +319,6 @@ def main():
 
               else:
                 print("             Enter a valid input! \n")
-                break
 
         #If user exists and entered password is NOT equal to the stored password
         elif check_existing_users(username) and password != user.password:
