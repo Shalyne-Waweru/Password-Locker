@@ -32,7 +32,13 @@ Run the following commands on the terminal
 |   Behaviour       	      |  Input             	    |  Output      	|
 |   :---: 	                |  :---:	                |  :---:	          |
 |   Open the application on the terminal  	| Run the commannd  `$ ./run.py`	| Welcome to PASSWORD LOCKER. We Help You Manage Your Account Passwords and Generate New Passwords For You!  	|
-|   STH                    |   STH	|   STH	|
+|   Create a New Account    |   Enter `username` and `password`. Type `e` to enter your own password or `g` to have a password generated for you	|   Account Created Successfully! Hello `username`, your password is `password`	|
+|   Login to your account | Enter `username` and `password` |  IF USER EXISTS -> Hello `username`.Welcome To PassWord Locker IF THE WRONG PASSWORD WAS ENTERED -> Invalid password. Please try Again IF USER DOESN'T EXIST -> That user does not exist| 
+|   Create New Account Credentials |  Enter `cr` then enter username and password. Type `e` to enter your own password or `g` to have a password generated for you | New Account Credential Created Successfully! Account Name: `accountType`  Username: `username`  Password: `password` |
+|   Store Existing Account Credentials  |  Enter username and password  | Existing Account Credentials Stored Successfully! Account Name: `accountType`  Username: `username`  Password: `password`  |
+|   Display All Account Credentials | Enter `dis` | IF DETAILS EXISTS -> Here's a list of all you account credentials  IF DETAILS DON'T EXISTS -> You Don't have any existing account credentials. Login to create a new account or store your existing accounts |
+|   Delete Account Credentials | Enter `del` and the account name you want to delete | Account Credentials Deleted Successfully! |
+|   Exit the application | Enter `ex`| Thank you for Using Password Locker|
 
 ## License info
 MIT License
