@@ -9,12 +9,20 @@ manage the passwords of their various accounts and also generates new passwords 
 - [Shalyne Waweru](https://github.com/Shalyne-Waweru)
 - Email: shalynewaweru@gmail.com
 
+## Installation Requirements
+The application requires the following installations to operate
+- python3.6
+- pip
+
 ## Project setup instructions
 To start using this project use the following commands:
 
 - `git clone https://github.com/Shalyne-Waweru/Password-Locker.git`
 - `cd Password-Locker`
--  Run `./run.py` on your terminal
+
+Run the following commands on the terminal
+-  $ `chmod +x run.py`
+-  $ `./run.py`
 
 ## Technologies Used
 - Python
